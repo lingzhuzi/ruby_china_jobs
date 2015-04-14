@@ -1,0 +1,30 @@
+<h3>RubyChina招聘信息</h3>
+
+<form action="/jobs" class="form-horizontal" role="form">
+
+  <div class="form-group container-fluid">
+
+    <div class="row">
+      <div class="col-md-3">
+        <input class="form-control" size="16" type="text" id="city" name="city" value="<%= params[:city] %>">
+      </div>
+
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary">查询</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<ul class="list-group">
+  <% @jobs.each do |job| %>
+    <li class="list-group-item"><%= link_to job.title, job.url %></li>
+  <% end %>
+
+  <% if @jobs.size == 0 %>
+    <li class="list-group-item no-data">Sorry! There's nothing!</li>
+  <% end %>
+</ul>
+
+<%= will_paginate @jobs, previous_label: '上一页', next_label: '下一页' %>
