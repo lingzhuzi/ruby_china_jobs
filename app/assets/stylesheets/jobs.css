@@ -3,6 +3,8 @@
   They will automatically be included in application.css.
 */
 
+.job-list label {margin-right: 15px;}
+
 .pagination>em.current {
   z-index: 2;
   color: #fff;

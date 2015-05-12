@@ -4,6 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.text :content
+      t.datetime :published_at
 
       t.timestamps null: false
     end

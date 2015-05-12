@@ -17,9 +17,13 @@
 
 </form>
 
-<ul class="list-group">
+<ul class="list-group job-list">
   <% @jobs.each do |job| %>
-    <li class="list-group-item"><%= link_to job.title, job.url %></li>
+    <li class="list-group-item">
+      <label class="date    "><%= job.published_at.to_date %></label>
+      <label class="original"><%= link_to '查看原文', job.url, target: "_blank" %></label>
+      <label class="title   "><%= link_to job.title, "/jobs/#{job.id}", target: "_blank" %></label>
+    </li>
   <% end %>
 
   <% if @jobs.size == 0 %>
