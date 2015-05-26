@@ -1,0 +1,14 @@
+<h3>Ruby职位总量统计</h3>
+
+<table>
+  <tr>
+    <th width="80px">城市</th>
+    <th width="80px">职位数量</th>
+  </tr>
+  <% @reports.each do |report| %>
+    <tr>
+      <td><%= report.city.name %></td>
+      <td><%= report.job_num %></td>
+    </tr>
+    <% end %>
+</table>

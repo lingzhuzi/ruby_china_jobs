@@ -1,0 +1,52 @@
+<div class="form-group form-inline">
+
+  <div class="input-group col-lg-2">
+    <select id="report_type" class="form-control" readonly>
+      <option value="year">年度报表</option>
+      <option value="month">月度报表</option>
+    </select>
+  </div>
+
+  <div class="input-group date form_datetime col-lg-3" data-date-format="yyyy" id="year_from">
+    <div class="input-group-addon">From</div>
+    <input class="form-control" size="16" type="text" value="" readonly>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+  </div>
+
+  <div class="input-group date form_datetime col-lg-3" data-date-format="yyyy" id="year_to">
+    <div class="input-group-addon">To</div>
+    <input class="form-control" size="16" type="text" value="" readonly>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+  </div>
+
+  <div class="input-group date form_datetime col-lg-3" data-date-format="yyyy-mm" id="month_from" style="display: none;">
+    <div class="input-group-addon">From</div>
+    <input class="form-control" size="16" type="text" value="" readonly>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+  </div>
+
+  <div class="input-group date form_datetime col-lg-3" data-date-format="yyyy-mm" id="month_to" style="display: none;">
+    <div class="input-group-addon">To</div>
+    <input class="form-control" size="16" type="text" value="" readonly>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+  </div>
+
+  <div class="input-group col-lg-2">
+    <div class="input-group">
+      <button type="button" class="btn btn-primary" id='draw_report'>确定</button>
+    </div>
+  </div>
+</div>
+
+<div id="canvas_ctn">
+  <div id="container"></div>
+</div>
+
+<% content_for :js do  %>
+  <%= javascript_include_tag 'libs/highcharts' %>
+  <%= javascript_include_tag 'line_chart' %>
+<% end %>

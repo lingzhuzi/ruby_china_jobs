@@ -1,0 +1,47 @@
+<div class="row" style="margin: 20px 0;">
+  <div class="col-lg-2">
+    <div class="input-group">
+      <select id="report_type" class="form-control" >
+        <option value="total">总量报表</option>
+        <option value="year">年度报表</option>
+        <option value="month">月度报表</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-lg-2" id="year_col" style="display: none;">
+    <div class="input-group">
+      <select id="year" class="form-control" >
+        <% 2011.upto(Time.now.year) do |year| %>
+          <option><%= year %></option>
+        <% end %>
+      </select>
+      <span class="input-group-addon">年</span>
+    </div>
+  </div>
+
+  <div class="col-lg-2" id="month_col" style="display: none;">
+    <div class="input-group">
+      <select id="month" class="form-control" >
+        <% 1.upto(12) do |month| %>
+          <option><%= month %></option>
+        <% end %>
+      </select>
+      <span class="input-group-addon">月</span>
+    </div>
+  </div>
+
+
+  <div class="col-lg-2">
+    <div class="input-group">
+      <button type="button" class="btn btn-primary" id='draw_report'>确定</button>
+    </div>
+  </div>
+</div>
+
+<div id="canvas_ctn"></div>
+
+<% content_for :js do %>
+  <%= javascript_include_tag 'libs/Chart' %>
+  <%= javascript_include_tag 'bar_chart' %>
+<% end %>

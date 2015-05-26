@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyChina招聘信息</title>
+  <title>RubyChina Topics</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="container">
+    <ul class="nav nav-pills" style="margin: 10px 0;">
+      <li role="presentation"><a href="/">Topics</a></li>
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+          Reports <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="/reports/total">总量报表</a></li>
+          <li><a href="/reports/year">年度报表</a></li>
+          <li><a href="/reports/month">月份报表</a></li>
+          <li><a href="/reports/bar_chart">柱状图</a></li>
+          <li><a href="/reports/line_chart">曲线图</a></li>
+        </ul>
+      </li>
+    </ul>
+
     <%= yield %>
   </div>
+
+  <%= javascript_include_tag 'application' %>
+  <%= yield :js %>
 
 </body>
 </html>

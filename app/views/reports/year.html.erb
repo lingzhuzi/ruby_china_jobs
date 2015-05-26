@@ -1,0 +1,44 @@
+<h3>Ruby职位年度统计</h3>
+
+<div class="form-group form-inline">
+  <form action="/reports/year" method="get">
+    <div class="input-group date form_datetime col-lg-3" data-date-format="yyyy" id="year_from">
+      <div class="input-group-addon">From</div>
+      <input class="form-control" size="16" type="text" name="from" value="<%= params[:from] %>" readonly>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+    </div>
+
+    <div class="input-group date form_datetime col-lg-3" data-date-format="yyyy" id="year_to">
+      <div class="input-group-addon">To</div>
+      <input class="form-control" size="16" type="text" name="to" value="<%= params[:to] %>" readonly>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+    </div>
+
+    <div class="input-group col-lg-2">
+      <div class="input-group">
+        <button type="submit" class="btn btn-primary" id='draw_report'>确定</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<table>
+  <tr>
+    <th width="80px">年份</th>
+    <th width="80px">城市</th>
+    <th width="80px">职位数量</th>
+  </tr>
+  <% @reports.each do |report| %>
+    <tr>
+      <td><%= report.name %></td>
+      <td><%= report.city.name %></td>
+      <td><%= report.job_num %></td>
+    </tr>
+    <% end %>
+</table>
+
+<% content_for :js do %>
+  <%= javascript_include_tag 'year_report' %>
+<% end %>
